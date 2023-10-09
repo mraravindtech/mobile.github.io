@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KONG BROWSER</title>
+    <link href="home.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/39d6712fc9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="logo.png" class="logo-img"/><span>KONG BROWSER</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Dropdown Button -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Features
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="filechecker.html" target="_blank">Check Your Files</a></li>
+                  <li><a class="dropdown-item" href="kongapps.html" target="_blank">Our Apps</a></li>
+                  
+                </ul>
+              </li>
+              <!-- End Dropdown Button -->
+              <li class="nav-item">
+                <a class="nav-link active" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-current="page" href="#">About us</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3 class="modal-title modal-head text-center" id="exampleModalLabel">ABOUT US</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <h5>Aravind.G - Backend Developer</h5>
+            <h5>Akmal Jahan.S - Frontend Developer</h5>
+            <h5>Deepan.R - Frontend Developer</h5>
+            <h5>Girinath.S - Designer</h5>
+            <h5>Durkesh.A - Designer</h5>
+            </div>
+            <div class="modal-footer footer">
+            <button type="button" class="btn close-btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7 input-box">
+            <i class="uil uil-search"></i>
+            <input type="text" id="searchInput" placeholder="Search here..." />
+            <button class="button" onclick="searchOrCheck()">Search</button>
+        </div>
+    </div>
+    
+     
+     <div id="popup">
+        <p id="popupMessage"></p>
+        <div>
+            <img src="not safe gif.gif" id="UnsafeImg" class="mx-auto">
+        </div>
+        
+        <div class="mx-auto">
+            <button onclick="closePopup()" class="close-button mt-3 ">Close</button>
+        </div>
+        
+    </div>
+    <div class="bg-image d-none d-md-block">
+        <img src="bgg.gif" class="bg-image" usemap="#image-map">
+        
+    </div>
+    
+    <div class="bg-image d-block d-md-none">
+        <img src="bgm.gif" usemap="#image_map-sm" class="bg-image">
+        
+    </div>
+    <map name="image_map-sm">
+        <area target="_blank" alt="prime" title="prime" href="https://primevideo.com" coords="130,1121,88" shape="circle">
+        <area target="_blank" alt="ama" title="ama" href="https://amazon.com" coords="319,1010,91" shape="circle">
+        <area target="_blank" alt="inta" title="inta" href="https://instagram.com" coords="495,900,85" shape="circle">
+        <area target="_blank" alt="tw" title="tw" href="https://twitter.com" coords="512,1108,88" shape="circle">
+        <area target="_blank" alt="youtube" title="youtube" href="https://youtube.com" coords="688,1003,91" shape="circle">
+        <area target="_blank" alt="net" title="net" href="https://netflix.com" coords="700,1225,96" shape="circle">
+        <area target="_blank" alt="mail" title="mail" href="https://mail.google.com" coords="879,905,88" shape="circle">
+        <area target="_blank" alt="fb" title="fb" href="https://fb.com" coords="882,1106,88" shape="circle">
+        <area target="_blank" alt="can" title="can" href="https://canva.com" coords="875,1329,92" shape="circle">
+        <area target="_blank" alt="flip" title="flip" href="https://flipkart.com" coords="1053,795,86" shape="circle">
+        <area target="_blank" alt="tg" title="tg" href="https://web.telegram.org" coords="1059,1012,96" shape="circle">
+        <area target="_blank" alt="link" title="link" href="https://linkedin.com" coords="1060,1221,88" shape="circle">
+        <area target="_blank" alt="whatsapp" title="whatsapp" href="https://web.whatsapp.com" coords="325,1219,92" shape="circle">
+      </map>
+    
+
+    <map name="image-map">
+        <map name="image-map">
+            <area target="_blank" alt="Prime Video" title="Prime Video" href="https://www.primevideo.com" coords="501,407,65" shape="circle">
+            <area target="_blank" alt="Amazon" title="Amazon" href="https://www.amazon.com" coords="634,325,66" shape="circle">
+            <area target="_blank" alt="Whatsapp" title="Whatsapp" href="https://www.web.whatsapp.com" coords="641,478,67" shape="circle">
+            <area target="_blank" alt="Instagram" title="Instagram" href="https://www.instagram.com" coords="764,252,66" shape="circle">
+            <area target="_blank" alt="Twitter" title="Twitter" href="https://www.twitter.com" coords="772,406,66" shape="circle">
+            <area target="_blank" alt="Youtube" title="Youtube" href="https://www.youtube.com" coords="904,332,67" shape="circle">
+            <area target="_blank" alt="Netflix" title="Netflix" href="https://www.netflix.com" coords="907,479,64" shape="circle">
+            <area target="_blank" alt="Gmail" title="Gmail" href="https://mail.google.com/" coords="1036,257,65" shape="circle">
+            <area target="_blank" alt="Facebook" title="Facebook" href="https://www.facebook.com" coords="1034,403,63" shape="circle">
+            <area target="_blank" alt="Canva" title="Canva" href="https://www.canva.com" coords="1036,562,66" shape="circle">
+            <area target="_blank" alt="Linkedin" title="Linkedin" href="https://www.linkedin.com" coords="1166,483,65" shape="circle">
+            <area target="_blank" alt="Filpkart" title="Filpkart" href="https://www.flipkart.com" coords="1170,178,64" shape="circle">
+            <area target="_blank" alt="Telegram" title="Telegram" href="https://web.telegram.org/" coords="1166,331,67" shape="circle">
+        
+    </map>
+    <script>
+        function searchOrCheck() {
+            var inputText = document.getElementById("searchInput").value;
+            var wordsToCheck = ["phishing", "ngrock", "hack", "hacking", "prize", "phish"];
+            var foundWords = [];
+
+            wordsToCheck.forEach(function (word) {
+                if (inputText.toLowerCase().includes(word.toLowerCase())) {
+                    foundWords.push(word);
+                }
+            });
+
+            var popup = document.getElementById("popup");
+            var popupMessage = document.getElementById("popupMessage");
+
+            if (foundWords.length > 0) {
+                let UnsafeImg=document.getElementById("UnsafeImg");
+                UnsafeImg.style.display="block";
+                popupMessage.textContent = "This link is not safe.";
+                popup.style.display = "block";
+            } else {
+                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(inputText);
+            }
+        }
+
+        function closePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "none";
+        }
+    </script>
+</body>
+</html>

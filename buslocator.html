@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Locator</title>
+    <link href="home.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/39d6712fc9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        .bus-bg {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        input[type="text"], button {
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #0d96eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        #busInfo {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="logo.png" class="logo-img"/><span>KONG BROWSER</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Dropdown Button -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Features
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="filechecker.html" target="_blank">Check Your Files</a></li>
+                  <li><a class="dropdown-item" href="kongapps.html" target="_blank">Our Apps</a></li>
+                  
+                </ul>
+              </li>
+              <!-- End Dropdown Button -->
+              <li class="nav-item">
+                <a class="nav-link active" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-current="page" href="#">About us</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3 class="modal-title modal-head text-center" id="exampleModalLabel">ABOUT US</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <h5>Aravind.G - Backend Developer</h5>
+            <h5>Akmal Jahan.S - Frontend Developer</h5>
+            <h5>Deepan.R - Frontend Developer</h5>
+            <h5>Girinath.S - Designer</h5>
+            <h5>Durkesh.A - Designer</h5>
+            </div>
+            <div class="modal-footer footer">
+            <button type="button" class="btn close-btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="bus-bg">
+        <h1>Bus Locator</h1>
+        <label for="destination">Enter Destination:</label>
+        <input type="text" id="destination" placeholder="Type destination" onkeypress="handleKeyPress(event)">
+        <button onclick="findBuses()">Search</button>
+        <div id="busInfo">
+            <!-- Bus information will be displayed here -->
+        </div>
+        
+        <button id="mapsButton" style="display: none;">Get the Directions</button>
+    </div>
+    
+
+    <script>
+        // Simulated bus data (replace this with real data)
+        const busRoutes = {
+            'junction': ['Bus no 13', 'Bus no 13/28', 'Bus no 100'],
+            'hastampatty': ['Bus no 5c', 'Bus no 7'],
+            '5 roads': ['Bus no 13', 'Bus no 13/28', 'Bus no 100','Bus no 5c', 'Bus no 7'],
+        };
+
+        // Function to find buses
+        function findBuses() {
+            const destination = document.getElementById('destination').value.toLowerCase();
+
+            // Check if the destination is valid
+            if (busRoutes[destination]) {
+                const busInfo = document.getElementById('busInfo');
+                busInfo.innerHTML = ''; // Clear previous results
+                const buses = busRoutes[destination];
+
+                buses.forEach((bus, index) => {
+                    setTimeout(() => {
+                        busInfo.innerHTML += `Buses to ${destination}: ${bus}<br>`;
+                        if (index === buses.length - 1) {
+                            // Show the Maps button after all results are displayed
+                            document.getElementById('mapsButton').style.display = 'block';
+                        }
+                    }, index * 1000); // Delayed display for a better effect
+                });
+            } else {
+                document.getElementById('busInfo').innerHTML = `No buses found for ${destination}`;
+                // Hide the Maps button if no buses found
+                document.getElementById('mapsButton').style.display = 'none';
+            }
+        }
+
+        // Function to handle Enter key press
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                findBuses();
+            }
+        }
+
+        // Function to open Google Maps with directions
+        document.getElementById('mapsButton').addEventListener('click', function() {
+            const destination = document.getElementById('destination').value;
+            const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>

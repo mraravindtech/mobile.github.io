@@ -2,67 +2,94 @@
 <html>
 <head>
     <title>KONG BROWSER</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-image: url('bg.gif');
-            background-repeat: no-repeat;
-            background-attachment: fixed;  
-            background-size: cover;
-        }
-        .navbar {
-            background-color: transparent; 
-            color: white;
-            padding: 10px;
-            position: absolute; 
-            width: 100%; 
-            z-index: 1; 
-        }
-        .navbar input[type="text"] {
-            padding: 10px;
-            width: 70%;
-            border: none;
-            border-radius: 5px;
-        }
-        .navbar button {
-            padding: 10px 20px;
-            background-color: #0d96eb;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
-        #popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            border: 1px solid #ccc;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-        }
-    </style>
+    <link href="home.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/39d6712fc9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
     
-    <div class="navbar">
-        <br>
-        <h1>Kong Browser</h1>
-        <input type="text" id="searchInput" placeholder="Search the web">
-        <button onclick="searchOrCheck()">Go</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="logo.png" class="logo-img"/><span>KONG BROWSER</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Dropdown Button -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Features
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="filechecker.html" target="_blank">Check Your Files</a></li>
+                  <li><a class="dropdown-item" href="kongapps.html" target="_blank">Our Apps</a></li>
+                  
+                </ul>
+              </li>
+              <!-- End Dropdown Button -->
+              <li class="nav-item">
+                <a class="nav-link active" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" aria-current="page" href="#">About us</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3 class="modal-title modal-head text-center" id="exampleModalLabel">ABOUT US</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <h5>Aravind.G - Backend Developer</h5>
+            <h5>Akmal Jahan.S - Frontend Developer</h5>
+            <h5>Deepan.R - Frontend Developer</h5>
+            <h5>Girinath.S - Designer</h5>
+            <h5>Durkesh.A - Designer</h5>
+            </div>
+            <div class="modal-footer footer">
+            <button type="button" class="btn close-btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
     </div>
-
-    <div id="popup">
+    <div class="row">
+        <div class="col-7 input-box-sm">
+            <i class="uil uil-search"></i>
+            <input type="text" id="searchInput" placeholder="Search here..." onkeydown="searchOnEnter(event)" />
+            <button class="button" onclick="searchOrCheck()">Search</button>
+        </div>
+    </div>
+    
+     
+     <div id="popup">
         <p id="popupMessage"></p>
-        <button onclick="closePopup()">Close</button>
+        <div>
+            <img src="not safe gif.gif" id="UnsafeImg" class="mx-auto">
+        </div>
+        
+        <div class="mx-auto">
+            <button onclick="closePopup()" class="close-button mt-3 ">Close</button>
+        </div>
+        
+    </div>
+    <div class="bg-image">
+        <img src="bgm.gif" usemap="#image_map">
+        
     </div>
     
 
-    <img src="bgm.gif" usemap="#image_map">
+   
     <map name="image_map">
       <area target="_blank" alt="prime" title="prime" href="https://primevideo.com" coords="130,1121,88" shape="circle">
       <area target="_blank" alt="ama" title="ama" href="https://amazon.com" coords="319,1010,91" shape="circle">
@@ -96,6 +123,8 @@
             var popupMessage = document.getElementById("popupMessage");
 
             if (foundWords.length > 0) {
+                let UnsafeImg=document.getElementById("UnsafeImg");
+                UnsafeImg.style.display="block";
                 popupMessage.textContent = "This link is not safe.";
                 popup.style.display = "block";
             } else {
@@ -106,6 +135,12 @@
         function closePopup() {
             var popup = document.getElementById("popup");
             popup.style.display = "none";
+        }
+
+        function searchOnEnter(event) {
+            if (event.key === 'Enter') {
+                searchOrCheck();
+            }
         }
     </script>
 </body>
